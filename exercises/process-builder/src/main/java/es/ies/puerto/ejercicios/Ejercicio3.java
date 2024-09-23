@@ -1,12 +1,13 @@
 package es.ies.puerto.ejercicios;
 
+import java.io.File;
 import java.io.IOException;
 
-public class Ejercicio1 {
+public class Ejercicio3 {
     public static void main(String[] args) {
-        // Crear un nuevo proceso que ejecuta el comando 'ping'
-        ProcessBuilder pb = new ProcessBuilder("ping", "-c", "3", "google.com");
-
+        ProcessBuilder pb = new ProcessBuilder("ls", "-la");
+        File output = new File("src/main/resources/lsOutput.txt");
+        pb.redirectOutput(output);
         try {
             // Iniciar el proceso
             Process proceso = pb.start();
@@ -16,7 +17,7 @@ public class Ejercicio1 {
             System.out.println("Código de salida: " + exitCode);
 
         } catch (IOException | InterruptedException e) {
-            System.err.println("Error executing ping command: " + e.getMessage());
+            System.err.println("Error executing command: " + e.getMessage());
         }
     }
 }

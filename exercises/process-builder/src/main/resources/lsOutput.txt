@@ -1,0 +1,9 @@
+total 32
+drwxr-xr-x 5 dam dam 4096 sep 23 20:20 .
+drwxrwxr-x 3 dam dam 4096 sep 19 14:50 ..
+-rw-rw-r-- 1 dam dam   16 sep 19 15:19 myfile.txt
+-rw-r--r-- 1 dam dam 1488 sep 19 14:50 pom.xml
+-rw-r--r-- 1 dam dam  154 sep 19 15:02 README.md
+drwxr-xr-x 4 dam dam 4096 sep 19 14:50 src
+drwxrwxr-x 8 dam dam 4096 sep 19 14:54 target
+drwxr-xr-x 2 dam dam 4096 sep 19 14:50 .vscode
