@@ -28,11 +28,6 @@ public class PokemonBattle implements Runnable {
                 loserDeclared = true;
                 System.out.println(myPokemon.getName() + " ha perdido el combate!");
             }
-            
-            if (opponentPokemon.getHealth() <= 0 &&!loserDeclared) {
-                loserDeclared = true;
-                System.out.println(opponentPokemon.getName() + " ha perdido el combate!");
-            }
 
             try {
                 Thread.sleep(500); // Pausa entre pasos
