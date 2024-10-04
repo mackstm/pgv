@@ -2,8 +2,13 @@ package es.ies.puerto.ejercicio2;
 
 import java.util.Random;
 
+/**
+ * Hello world!
+ *
+ */
 public class HorrocruxCaza implements Runnable {
     private String name;
+    private static final int GOAL = 2000;
     private static boolean winnerDeclared = false;
 
     public HorrocruxCaza(String name) {
@@ -13,16 +18,27 @@ public class HorrocruxCaza implements Runnable {
     @Override
     public void run() {
         Random random = new Random();
-        int huntTime = random.nextInt(1000) + 1;
+        long start = System.currentTimeMillis();
+        long timePassed = 0;
+        while (timePassed < GOAL && !winnerDeclared) {
+            int time = random.nextInt(1000) + 1; // Avance aleatorio de 1 a 10
+            long end = System.currentTimeMillis();
+                timePassed = (end - start);
+                System.out.println(name + " lleva " + timePassed + " milisegundos.");
 
+                if (timePassed >= GOAL && !winnerDeclared) {
+                    winnerDeclared = true;
+                    System.out.println(name + " ha ganado con " + timePassed + " milisegundos!");
+                }
             try {
-                Thread.sleep(huntTime); // Pausa entre pasos
-                System.out.println(name + " ha ganado la caza");
+                Thread.sleep(time);
+                
+                
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
     }
-    
 
     public static void main(String[] args) {
         Thread harry = new Thread(new HorrocruxCaza("Harry"));
