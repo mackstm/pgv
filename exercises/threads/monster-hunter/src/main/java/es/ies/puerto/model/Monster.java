@@ -2,13 +2,49 @@ package es.ies.puerto.model;
 
 import java.util.Objects;
 
-public class Monster extends Thread{
+/**
+ * Class that represents monster
+ * @author Jose Maximiliano Boada Martin <maxibapl@gmail.com>
+ */
+public class Monster {
+
+    /**
+     * Properties
+     */
+    private int id;
     private String monsterName;
+    private String position;
+    private boolean captured;
 
-    public Monster() {}
+    /**
+     * Default constructor
+     */
+    public Monster() {
+        position = "";
+        captured = false;
+    }
 
-    public Monster(String name) {
-        this.monsterName = name;
+    /**
+     * Constructor with id and name
+     * @param id
+     * @param monsterName
+     */
+    public Monster(int id, String monsterName) {
+        this.id = id;
+        this.monsterName = monsterName;
+        position = "";
+        captured = false;
+    }
+
+    /**
+     * Getters and setters
+     */
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMonsterName() {
@@ -19,14 +55,34 @@ public class Monster extends Thread{
         this.monsterName = monsterName;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public boolean isCaptured() {
+        return captured;
+    }
+
+    public void setCaptured(boolean captured) {
+        this.captured = captured;
+    }
+
     @Override
     public String toString() {
-        return "Monster [monsterName=" + monsterName + "]";
+        return "Monster [id=" + id + ", monsterName=" + monsterName + ", position=" + position + ", captured="
+                + captured + "]";
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(monsterName);
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + id;
+        return result;
     }
 
     @Override
@@ -38,8 +94,11 @@ public class Monster extends Thread{
         if (getClass() != obj.getClass())
             return false;
         Monster other = (Monster) obj;
-        return Objects.equals(monsterName, other.monsterName);
+        if (id != other.id)
+            return false;
+        return true;
     }
 
     
+
 }
