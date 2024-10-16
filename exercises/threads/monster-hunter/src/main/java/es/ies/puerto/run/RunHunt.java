@@ -91,7 +91,7 @@ public class RunHunt {
             String location;
             do {
                 location = monsterHunter.getGameMap().generateLocations();
-            } while (checkPositionsOverlap(location, monsterHunter.getHunterList(), monsterHunter.getMonsterList()));
+            } while (overlap(location, monsterHunter.getHunterList(), monsterHunter.getMonsterList()));
             hunter.setPosition(location);
         }
 
@@ -99,13 +99,13 @@ public class RunHunt {
             String location;
             do {
                 location = monsterHunter.getGameMap().generateLocations();
-            } while (checkPositionsOverlap(location, monsterHunter.getHunterList(), monsterHunter.getMonsterList()));
+            } while (overlap(location, monsterHunter.getHunterList(), monsterHunter.getMonsterList()));
             monster.setPosition(location);
         }
 
     }
 
-    public static boolean checkPositionsOverlap(String position, List<Hunter> hunters, List<Monster> monsters){
+    public static boolean overlap(String position, List<Hunter> hunters, List<Monster> monsters){
         for (Hunter hunter : hunters) {
             if (hunter.getPosition() != null && hunter.getPosition().equals(position)) {
                 return true;
